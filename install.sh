@@ -47,6 +47,7 @@ if ! command -v mongosh &> /dev/null; then
     echo "Extracting mongosh..."
     unzip "$HOME/$MONGOSH_PACKAGE.zip" -d "$HOME/mongosh"
     cp "$HOME/mongosh/$MONGOSH_PACKAGE/bin/mongosh" "$HOME/bin/mongosh"
+    rm -rf "$HOME/mongosh"
     rm "$HOME/$MONGOSH_PACKAGE.zip"
   fi
 
