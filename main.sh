@@ -234,8 +234,6 @@ case "$ARG_1" in
     ;;
   *)
     echo "Error: Invalid argument"
-    echo ""
-    show_help
     exit 1
     ;;
 esac
