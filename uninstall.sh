@@ -30,6 +30,7 @@ if command -v mgsh &> /dev/null; then
   fi
 
   rm "$HOME/bin/mgsh"
+  rm -rf "$HOME/.mgsh"
   echo "mgsh removed."
 
   echo "Done."
