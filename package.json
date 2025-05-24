@@ -1,0 +1,7 @@
+{
+  "name": "mgsh",
+  "version": "1.0.0-rc",
+  "description": "A simple CLI tool to manage MongoDB connections. Build on top of mongosh.",
+  "main": "main.sh",
+  "author": "Warathep K."
+}
