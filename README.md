@@ -31,6 +31,7 @@ chmod +x install.sh
 ```bash
 mgsh # should show the help menu
 ```
+if mgsh is not found, you might need to restart your terminal or run `source ~/.zshrc` to reload the shell.
 
 ## Example Usage
 
