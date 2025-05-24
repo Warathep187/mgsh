@@ -59,4 +59,5 @@ fi
 cp main.sh "$HOME/bin/mgsh"
 chmod +x "$HOME/bin/mgsh"
 
+echo "mgsh is installed"
 echo "${GREEN}Done.${NC}"
