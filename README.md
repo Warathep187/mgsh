@@ -109,6 +109,18 @@ chmod +x *.sh
 
 Saved connection strings are stored in `~/.mgsh/connections/` directory, organized by namespace.
 
+## Uninstallation
+
+```bash
+chmod +x uninstall.sh
+
+# uninstall mgsh only
+./uninstall.sh
+
+# uninstall mgsh and dependencies (mongosh)
+./uninstall.sh --deps
+```
+
 ## Requirements
 
 - Zsh shell
