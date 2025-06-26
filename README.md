@@ -4,8 +4,6 @@ A simple command-line tool to manage and connect to multiple MongoDB instances e
 
 Built on top of [mongosh](https://www.mongodb.com/docs/mongodb-shell/).
 
-Available for MacOS (arm64) only 😅.
-
 ## Features
 
 - Save connection strings in environment namespaces (dev, beta, gamma, prod, personal, other) that mongosh cannot do natively.
@@ -13,25 +11,22 @@ Available for MacOS (arm64) only 😅.
 - Create, update, and delete connection configurations
 - Also works with mongosh command directly (e.g. `mgsh connect dev/myapp` is the same as `mongosh mongodb://xxxxx1`)
 
-## Installation
+## Installation (MacOS/Linux)
 
-1. Clone this repository:
+1. Install mgsh:
 ```bash
-git clone https://github.com/Warathep187/mgsh
-cd mgsh
+curl -o- https://raw.githubusercontent.com/Warathep187/mgsh/main/scripts/install.sh | bash
 ```
 
-2. Make the script executable and run the installation script:
-```bash
-chmod +x install.sh
-./install.sh
-```
-
-3. Verify the installation:
+2. Verify the installation:
 ```bash
 mgsh # should show the help menu
 ```
-if mgsh is not found, you might need to restart your terminal or run `source ~/.zshrc` to reload the shell.
+
+3. If mgsh is not found, reload your shell config file (e.g. `~/.zshrc` or `~/.bashrc`):
+```bash
+source ~/.zshrc # or ~/.bashrc
+```
 
 ## Example Usage
 
@@ -84,23 +79,19 @@ The project structure consists of the following files:
 - `main.sh`: Main script file
 - `run_tests.sh`: For running tests
 - `tests/`: Contains test files
-- `install.sh`: Installation script
+- `scripts/install.sh`: Installation script
+- `scripts/uninstall.sh`: Uninstallation script
 
 To run in development mode:
 
 1. Clone the repository
 
-2. Make sure all files have executable permissions:
-```bash
-chmod +x *.sh
-```
-
-3. Run the script directly:
+2. Run the script directly:
 ```bash
 ./main.sh [command] [options]
 ```
 
-4. Run the tests:
+3. Run the tests:
 ```bash
 ./run_tests.sh
 ```
@@ -110,18 +101,7 @@ chmod +x *.sh
 Saved connection strings are stored in `~/.mgsh/connections/` directory, organized by namespace.
 
 ## Uninstallation
-
+);
 ```bash
-chmod +x uninstall.sh
-
-# uninstall mgsh only
-./uninstall.sh
-
-# uninstall mgsh and dependencies (mongosh)
-./uninstall.sh --deps
+curl -o- https://raw.githubusercontent.com/Warathep187/mgsh/main/scripts/uninstall.sh | bash
 ```
-
-## Requirements
-
-- Zsh shell
-- mongosh (2.x)

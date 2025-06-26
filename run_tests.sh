@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 echo "🧪 Running mgsh tests..."
 echo ""

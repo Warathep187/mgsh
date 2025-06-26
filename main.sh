@@ -1,7 +1,4 @@
-#!/bin/zsh
-
-BOLD='\033[1m'
-NORMAL='\033[0m'
+#!/bin/bash
 
 ARG_1="$1"
 ARG_2="$2"
@@ -16,13 +13,13 @@ NO_NAMESPACE_FOUND="No namespace found"
 INVALID_NAMESPACE="Invalid namespace"
 
 show_help() {
-  echo "${BOLD}$ mgsh [command] [options]${NORMAL}"
+  echo "$ mgsh [command] [options]"
   echo ""
-  echo "${BOLD}connection format:${NORMAL}"
+  echo "connection format:"
   echo "  <namespace>/<connection-name>"
   echo "  example: dev/myapp"
   echo ""
-  echo "${BOLD}possible namespaces:${NORMAL}"
+  echo "possible namespaces:"
   echo "  - dev"
   echo "  - beta"
   echo "  - gamma"
@@ -30,7 +27,7 @@ show_help() {
   echo "  - personal"
   echo "  - other"
   echo ""
-  echo "${BOLD}Commands:${NORMAL}"
+  echo "Commands:"
   echo "  list                                      List all available connections"
   echo "  list <namespace>                          List connections in a specific namespace (possible namespace: dev, beta, gamma, prod, personal, other)"
   echo "                                            example: mgsh list dev"
@@ -43,7 +40,7 @@ show_help() {
   echo "  delete [connection]                       Delete an existing connection"
   echo "  mongosh [arguments]                       Run mongosh command directly. (Run mgsh mongosh --help for more information)"
   echo ""
-  echo "${BOLD}Examples:${NORMAL}"
+  echo "Examples:"
   echo "  mgsh list"
   echo "  mgsh connect dev/myapp"
   echo "  mgsh get dev/myapp"
@@ -155,8 +152,19 @@ case "$ARG_1" in
       exit 1
     fi
 
-    cat $CONNECTIONS_DIR/$CONN | pbcopy
-    echo "Connection string copied to clipboard"
+    if command -v pbcopy >/dev/null 2>&1; then # macOS
+      cat $CONNECTIONS_DIR/$CONN | pbcopy
+      echo "Connection string copied to clipboard"
+    elif command -v xclip >/dev/null 2>&1; then # Linux with xclip
+      cat $CONNECTIONS_DIR/$CONN | xclip -selection clipboard
+      echo "Connection string copied to clipboard"
+    elif command -v xsel >/dev/null 2>&1; then # Linux with xsel
+      cat $CONNECTIONS_DIR/$CONN | xsel --clipboard --input
+      echo "Connection string copied to clipboard"
+    else
+      echo "Clipboard utility not found. Connection string:"
+      cat $CONNECTIONS_DIR/$CONN
+    fi
     exit 0
     ;;
   "create")
