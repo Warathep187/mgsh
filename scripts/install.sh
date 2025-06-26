@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REMOTE_MAIN_SCRIPT_FILE="https://github.com/Warathep187/mgsh/blob/f56b801cf7beb1176589b10ab82da080066b6985/main.sh"
+REMOTE_MAIN_SCRIPT_FILE="https://raw.githubusercontent.com/Warathep187/mgsh/main/main.sh"
 
 MAIN_DIR="$HOME/.mgsh"
 CONNECTIONS_DIR="$MAIN_DIR/connections"
