@@ -4,12 +4,16 @@ A simple command-line tool to manage and connect to multiple MongoDB instances e
 
 Built on top of [mongosh](https://www.mongodb.com/docs/mongodb-shell/).
 
+<div align="center">
+  <img src="./docs/demo.gif" alt="mgsh" width="650">
+</div>
+
 ## Features
 
 - Save connection strings in environment namespaces (dev, beta, gamma, prod, personal, other) that mongosh cannot do natively.
 - Quick connection using saved configurations
 - Create, update, and delete connection configurations
-- Also works with mongosh command directly (e.g. `mgsh connect dev/myapp` is the same as `mongosh mongodb://xxxxx1`)
+- Also works with the mongosh command directly (e.g. `mgsh connect dev/myapp` is the same as `mongosh mongodb://xxxxx1`)
 
 ## Installation (MacOS/Linux)
 
@@ -37,10 +41,10 @@ mgsh
 # List all available connections
 mgsh list
 
-# List connections in a specific namespace (possible namespace: dev, beta, gamma, prod, personal, other)
+# List connections in a specific namespace (possible namespaces: dev, beta, gamma, prod, personal, other)
 mgsh list dev
 
-# Connect to default MongoDB connection (mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000)
+# Connect to the default MongoDB connection (mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000)
 mgsh connect
 
 # Connect to MongoDB using a saved connection
@@ -71,7 +75,7 @@ Possible namespaces:
 - personal
 - other
 
-Example: `dev/myapp` or `prod/database1`
+Examples: `dev/myapp`, `prod/database1`, `personal/my-local-db`
 
 ## Development
 
@@ -98,7 +102,7 @@ To run in development mode:
 
 ## Storage
 
-Saved connection strings are stored in `~/.mgsh/connections/` directory, organized by namespace.
+Saved connection strings are stored in the `~/.mgsh/connections/` directory, organized by namespace.
 
 ## Uninstallation
 );
